@@ -2,7 +2,7 @@
 
 ## Topic
 
-Influences of performance in algorithms
+Big O notation
 
 ## Introduction
 
@@ -10,11 +10,11 @@ Influences of performance in algorithms
 
 ### Research question
 
-Are optimisations that have a time-space trade-off more effective than optimisations that don't have time-space trade-offs?
+Is big O notation an accurate representation of a programs performance?
 
 ### Hypothesis
 
-Programs that trade space complexity with time complexity will have a greater performance but at the cost of greater memory usage.
+Big O notation is accurate to a certain extent, but benchmarking will give more realistic results.
 
 ## Method
 
@@ -22,19 +22,11 @@ Programs that trade space complexity with time complexity will have a greater pe
 
 ### Procedure
 
-We will analyze the time and memory usage of many different algorithms while using different optimising techniques to see how they differ.
-
-We will write the implementations of many types of algorithms, both fast and slow, and determine the optimising techniques to see how they changed the space and time complexity.  
+We will write the implementations of many types of algorithms, both fast and slow, and determine to see how big O notation and benchmarked results differ.
 
 Types of algorithms
 * Sorting algorithms
 * Searching algorithms
-
-Optimising techniques include:
-* Divide and Conquer
-* Dynamic Programming
-* Greedy
-* Hashing
 
 Ways of determining result:
 * Space time complexity analysis
