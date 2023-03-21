@@ -1,58 +1,67 @@
-# science_fair
-G9 Science Fair\n
+# Science Fair
 
+## Topic
 
-I. Introduction
+Influences of performance in algorithms
 
+## Introduction
 
-Background information on the topic
+### Background Information
 
-Research question
+### Research question
 
-Hypothesis
+Are optimisations that have a time-space trade-off more effective than optimisations that don't have time-space trade-offs?
 
-II. Materials and Methods
+### Hypothesis
 
+Programs that trade space complexity with time complexity will have a greater performance but at the cost of greater memory usage.
 
-List of materials and equipment used
+## Method
 
-Description of the experimental procedure
+### Materials
 
-III. Results
+### Procedure
 
+We will analyze the time and memory usage of many different algorithms while using different optimising techniques to see how they differ.
 
-Presentation of data in tables, graphs, or charts
+We will write the implementations of many types of algorithms, both fast and slow, and determine the optimising techniques to see how they changed the space and time complexity.  
 
-Analysis of data and interpretation of results
+Types of algorithms
+* Sorting algorithms
+* Searching algorithms
 
-IV. Discussion
+Optimising techniques include:
+* Divide and Conquer
+* Dynamic Programming
+* Greedy
+* Hashing
 
+Ways of determining result:
+* Space time complexity analysis
+* Benchmarking
 
-Explanation of how the results support or refute the hypothesis
+## Results
 
-Comparison of the results to previous research
+[Insert graphs here]: #
 
-Discussion of the limitations of the study and suggestions for further research
+[Analysis of data]: #
 
-V. Conclusion
+## Discussion
 
+[Explanation of how the results support or refute the hypothesis]: #
 
-Summary of the findings
+[Comparison of the results to previous research]: #
 
-Discussion of the significance of the results
+[Discussion of the limitations of the study and suggestions for further research]: #
 
-VI. References
+## Conclusion
 
+[Summary of the findings]: #
 
-List of sources used in the research
+[Discussion of the significance of the results]: #
 
-VII. Acknowledgements
+## References
 
+## Acknowledgements
 
 Thanks to anyone who provided support or assistance with the project
-
-VIII. Visual Aids
-
-
-Any charts, graphs, pictures, or other visual aids used to present the project.
-
