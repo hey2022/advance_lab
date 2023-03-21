@@ -1,4 +1,4 @@
-# Advance Lab
+# Science Fair
 
 ## Topic
 
