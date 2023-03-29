@@ -1,7 +1,21 @@
+use rand::Rng;
+use std::time;
+
 fn main() {
-    let mut data = vec![7, 5, 7, 2, 4, 6, 13, 3, 9, 6, 4, 2, 3, 4];
-    radix_sort_helper(&mut data, 10);
-    println!("{:?}", data);
+    let size = 10usize.pow(8);
+    let mut i = 1;
+    while i <= size {
+        let num_size = i32::MIN..i32::MAX;
+        let mut data = Vec::with_capacity(size);
+        let mut rng = rand::thread_rng();
+        for _ in 0..i {
+            data.push(rng.gen_range(num_size.clone()));
+        }
+        let time = time::Instant::now();
+        radix_sort_helper(&mut data, 10);
+        println!("Size {} : Time {:.2?}", i, time.elapsed());
+        i *= 10;
+    }
 }
 
 fn radix_sort_helper(array: &mut [i32], radix: usize) {
@@ -21,7 +35,7 @@ fn radix_sort_helper(array: &mut [i32], radix: usize) {
     radix_sort(&mut positive, radix);
     negative.append(&mut positive);
     for (i, n) in negative.iter().enumerate() {
-        array[i] = *n; 
+        array[i] = *n;
     }
 }
 
@@ -65,7 +79,7 @@ mod tests {
     use rand::Rng;
 
     const SIZE: usize = 1000;
-    const NUM_RANGE: std::ops::Range<i32> = i32::MIN..i32::MAX; 
+    const NUM_RANGE: std::ops::Range<i32> = i32::MIN..i32::MAX;
 
     #[test]
     fn empty() {
