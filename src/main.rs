@@ -61,7 +61,7 @@ fn get_digit(number: i32, digit: u32, radix: usize) -> usize {
 
 #[cfg(test)]
 mod tests {
-    use crate::radix_sort_helper;
+    use super::radix_sort_helper;
     use rand::Rng;
 
     const SIZE: usize = 1000;
