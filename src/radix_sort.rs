@@ -1,24 +1,4 @@
-use rand::Rng;
-use std::time;
-
-fn main() {
-    let size = 10usize.pow(8);
-    let mut i = 1;
-    while i <= size {
-        let num_size = i32::MIN..i32::MAX;
-        let mut data = Vec::with_capacity(size);
-        let mut rng = rand::thread_rng();
-        for _ in 0..i {
-            data.push(rng.gen_range(num_size.clone()));
-        }
-        let time = time::Instant::now();
-        radix_sort_helper(&mut data, 10);
-        println!("Size {} : Time {:.2?}", i, time.elapsed());
-        i *= 10;
-    }
-}
-
-fn radix_sort_helper(array: &mut [i32], radix: usize) {
+pub fn radix_sort_neg(array: &mut [i32], radix: usize) {
     let mut negative = array
         .iter()
         .copied()
@@ -39,7 +19,7 @@ fn radix_sort_helper(array: &mut [i32], radix: usize) {
     }
 }
 
-fn radix_sort(array: &mut [i32], radix: usize) {
+pub fn radix_sort(array: &mut [i32], radix: usize) {
     if array.is_empty() {
         return;
     }
@@ -75,7 +55,7 @@ fn get_digit(number: i32, digit: u32, radix: usize) -> usize {
 
 #[cfg(test)]
 mod tests {
-    use super::radix_sort_helper;
+    use super::*;
     use rand::Rng;
 
     const SIZE: usize = 1000;
@@ -83,64 +63,64 @@ mod tests {
 
     #[test]
     fn empty() {
-        let mut data = [];
-        radix_sort_helper(&mut data, 10);
-        assert_eq!(data, []);
+        let mut data: [i32; 0] = [];
+        radix_sort(&mut data, 10);
+        assert_eq!(data, [] as [i32; 0]);
     }
 
     #[test]
     fn single() {
         let mut data = [1];
-        radix_sort_helper(&mut data, 10);
+        radix_sort(&mut data, 10);
         assert_eq!(data, [1]);
     }
 
     #[test]
     fn zero() {
         let mut data = [0; SIZE];
-        radix_sort_helper(&mut data, 10);
+        radix_sort(&mut data, 10);
         assert_eq!(data, [0; SIZE]);
     }
 
     #[test]
     fn ordered() {
         let mut data = (0..=SIZE as i32).collect::<Vec<i32>>();
-        radix_sort_helper(&mut data, 10);
+        radix_sort(&mut data, 10);
         assert_eq!(data, (0..=SIZE as i32).collect::<Vec<i32>>());
     }
 
     #[test]
     fn reversed() {
         let mut data = (0..=SIZE as i32).rev().collect::<Vec<i32>>();
-        radix_sort_helper(&mut data, 10);
+        radix_sort(&mut data, 10);
         assert_eq!(data, (0..=SIZE as i32).collect::<Vec<i32>>());
     }
 
     #[test]
     fn same() {
         let mut data = [5; SIZE];
-        radix_sort_helper(&mut data, 10);
+        radix_sort(&mut data, 10);
         assert_eq!(data, [5; SIZE]);
     }
 
     #[test]
     fn positive() {
         let mut data = [17, 5, 7, 2, 4, 6, 13, 3, 9, 6];
-        radix_sort_helper(&mut data, 10);
+        radix_sort(&mut data, 10);
         assert_eq!(data, [2, 3, 4, 5, 6, 6, 7, 9, 13, 17]);
     }
 
     #[test]
     fn negative() {
         let mut data = [-2, -4, -2, -6, -234, -45, -13, -65, -23, -456];
-        radix_sort_helper(&mut data, 10);
+        radix_sort_neg(&mut data, 10);
         assert_eq!(data, [-456, -234, -65, -45, -23, -13, -6, -4, -2, -2]);
     }
 
     #[test]
     fn mixed() {
         let mut data = [234, -234, 564, -25, 63, -62, 64, -267, -246, 163];
-        radix_sort_helper(&mut data, 10);
+        radix_sort_neg(&mut data, 10);
         assert_eq!(data, [-267, -246, -234, -62, -25, 63, 64, 163, 234, 564]);
     }
 
@@ -151,7 +131,7 @@ mod tests {
         for _ in 0..SIZE {
             data.push(rng.gen_range(NUM_RANGE));
         }
-        radix_sort_helper(&mut data, 10);
+        radix_sort_neg(&mut data, 10);
         for i in 1..data.len() {
             if data[i] < data[i - 1] {
                 panic!();
