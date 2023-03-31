@@ -2,7 +2,7 @@
 
 ## Topic
 
-Big O notation
+Computational Complexity Theory
 
 ## Introduction
 
@@ -10,11 +10,11 @@ Big O notation
 
 ### Research question
 
-Is big O notation an accurate representation of a programs performance?
+Is the computational complexity of an algorithm an accurate representation of an algorithm's performance?
 
 ### Hypothesis
 
-Big O notation is accurate to a certain extent, but benchmarking will give more realistic results.
+Computational complexity is accurate to a certain extent, but benchmarking will give more realistic results.
 
 ## Method
 
