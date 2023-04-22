@@ -1,9 +1,12 @@
 import subprocess
 import random
+import time
 n=int(input())
 c=int(input())
-subprocess.run("rm ./txsv.txt", shell=True)
-file = open("./txsv.txt",'w')
+filename=["","FR","AS","RV"]
+subprocess.run(f"cp -r ./data ./pastdata/data{time.time_ns()}", shell=True)
+subprocess.run(f"rm ./data/{filename[n]}_{c}.in")
+file = open(f"./data/{filename[n]}_{c}.in",'w')
 file.write(str(n)+"\n")
 if(c==1):
     r1=[i for i in range(1, n+1)]
